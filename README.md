@@ -157,31 +157,6 @@ a missing concurrency group fails the build that would ship it.
 - **Drop a rule quietly.** Exemptions are reasoned, counted, and visible
   in every output format.
 
-## How it compares
-
-*Caption: Context-compression tools on one machine — ours verifies bytes, they measure size.*
-
-|tool|install|offline?|quality/byte-exact metric|license/key-caveat|
-|---|---|---|---|---|
-|**compressproof** (ours)|Python stdlib, no deps — clone/run|Yes|SHA-256 byte-exact round-trip + N/N needle-question oracle|MIT; committed red example runs in CI|
-|**pxpipe**|`npm i -g pxpipe-proxy` / `npx pxpipe-proxy` (v0.13.2)|Yes (local proxy)|SWE-bench Lite 10/10 both arms; hex verbatim recall 13/15 (Fable 5) / 0/15 (Sol)|MIT; README states “It is lossy” — misses are silent confabulations|
-|**context-mode**|`npm i -g context-mode` (Node >=22.5)|Yes (never phones home)|Size-ratio claim only (315 KB -> 5.4 KB, 98%); no quality/answer-retention numbers|Elastic-2.0 (not OSI-approved); reversible only via FTS5 section index|
-|**headroom**|`pip install "headroom-ai[all]"` (PyPI; npm pkg has no CLI)|Yes for compression; telemetry beacon **on by default** (`HEADROOM_BEACON=off`)|GSM8K 0.870 -> 0.870; TruthfulQA delta inside +/-0.030 CI; SQuAD 97% @19% compression; proof table 21-57% saved|Apache-2.0; reversible via CCR cache, but phones home unless disabled|
-|**RTK**|`winget install rtk-ai.rtk` (Rust single binary)|Yes|“Up to 90% of bash output” claim, honestly caveated as bytes/4 token estimate; no answer oracle|Apache-2.0; third-party JetBrains run: **+7.6% median cost/task** at low reasoning|
-|**OmniRoute**|`npm i -g omniroute` (v3.8.50, ~452 MB unpacked, Node >=22.22)|Gateway local, but proxies to cloud model providers|Savings math only (89.2% avg stacked claim); no answer-retention metric|MIT; bloat (452 MB), mixed-lossy engines (byte-exact only for code/JSON)|
-|**fast-jev-compaction**|`npm i fast-jev-compaction` (+ Claude Code plugin)|**No** — requires `TYPESAFE_API_KEY`, calls cloud Jev API (api.typesafe.ai)|reductionRatio/stats only (kept N/M messages); no precision/recall|MIT; deletes-only (never rewrites), but compaction decisions are cloud-issued|
-
-*Caption: AI-prose detectors — only ours and unslop-check give checkable numbers without sending text anywhere.*
-
-|tool|install|offline?|quality/precision metric|license/key-caveat|
-|---|---|---|---|---|
-|**aitell** (ours)|`npx skills add F0Rextasy/aitell`|Yes|Published confusion matrix; deterministic score|Deterministic — same input, same verdict, every run|
-|**ai-detect**|`git clone github.com/houtini-ai/ai-detect && pip install .` (not on PyPI)|Yes, after 1.7 GB one-time model download (126 MB light)|Model RAID #1 backing + paired 92.6% vs 0.03%; no own P/R table|MIT (beta); pulls torch/transformers|
-|**unslop-check**|`npm i -g unslop-check` (Node >=18)|Yes (pure stylometry, no model)|7 signals 0-1 + composite; calibration FPR floor 0.4% — distilled from unslop.run, not self-measured|MIT; reference data, not tool-measured precision/recall|
-|**SaaS (GPTZero)**|Web/API — no offline CLI|No|Vendor-claimed accuracy only, unverifiable locally|Proprietary/paid; text leaves the machine (NDA risk)|
-
-**Note:** axe CLI (`@axe-core/cli` v4.13.0) exits `1` on violations **only** with opt-in `-q`/`--exit` (default exit `0` even with findings) → our CI gate must pass `-q`; `file://` URLs pass through untouched.
-
 ## One path, many gates — the family
 
 | Repo | What its verdict means |
