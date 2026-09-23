@@ -14,7 +14,7 @@ and last month's failed runs quietly ate the quota. `cigate` reads
 `.github/workflows/*.yml` as data, puts a number on the waste, and fails
 the build when it crosses your budget.
 
-![cigate terminal demo](assets/demo.svg)
+![cigate terminal demo](assets/demo.png)
 
 ## The problem is real
 
