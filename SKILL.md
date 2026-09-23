@@ -2,7 +2,7 @@
 name: cigate
 description: Gates GitHub Actions workflows for waste and drift -- unpinned actions tags, push/pull_request triggers without path filters (every docs-only commit runs the matrix), duplicate jobs that pay twice, pull_request without a concurrency group, and an optional history budget that fails when minutes burned on failed/cancelled runs exceed --max-waste-minutes (fed offline from a captured gh api actions/runs payload). Use before merging workflow changes, in CI on every PR, or when a repo's Actions bill or queue time creeps up. Exit 1 = over a failure-class rule or budget; exit 2 = no workflows / bad usage.
 license: MIT
-compatibility: Requires Python 3.8+ with PyYAML (pip install pyyaml). No network needed: history mode reads a local --runs-json capture of `gh api repos/OWNER/REPO/actions/runs`. Works in Claude Code, Codex, Cursor, and any Agent Skills compatible client.
+compatibility: Requires Python 3.8+ with PyYAML (pip install pyyaml). No network needed - history mode reads a local --runs-json capture of `gh api repos/OWNER/REPO/actions/runs`. Works in Claude Code, Codex, Cursor, and any Agent Skills compatible client.
 metadata:
   author: F0Rextasy
   version: "1.0"

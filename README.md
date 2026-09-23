@@ -1,7 +1,8 @@
 [![tests](https://img.shields.io/github/actions/workflow/status/F0Rextasy/cigate/test.yml?branch=master&label=tests&style=flat-square&color=3fb950)](https://github.com/F0Rextasy/cigate/actions/workflows/test.yml)
 [![python](https://img.shields.io/badge/python-3.8%2B-3776AB?logo=python&logoColor=white&style=flat-square)](https://www.python.org/)
 [![PyYAML](https://img.shields.io/badge/dependency-PyYAML-3fb950?style=flat-square)](https://pyyaml.org/)
-[![verdicts](https://img.shields.io/badge/verdicts-no%20LLM-E34C26?style=flat-square&label=verdicts)](#what-it-will-never-do)
+[![verdicts](https://img.shields.io/badge/verdicts-deterministic-3fb950?style=flat-square)](#what-it-will-never-do)
+[![skills](https://skills.sh/b/F0Rextasy/cigate?style=flat-square)](https://skills.sh/F0Rextasy/cigate)
 [![license](https://img.shields.io/badge/license-MIT-3fb950?style=flat-square)](LICENSE)
 
 # cigate
@@ -29,6 +30,10 @@ the build when it crosses your budget.
 ## Quickstart
 
 ```bash
+# install the skill into any agent (Claude Code, Codex, Cursor, OpenCode, ...):
+npx skills add F0Rextasy/cigate
+
+# or run it directly:
 git clone https://github.com/F0Rextasy/cigate
 
 # static pass over this repo, warnings block:
